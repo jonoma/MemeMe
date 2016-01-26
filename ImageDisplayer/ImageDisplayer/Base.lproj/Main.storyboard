@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -58,6 +59,11 @@
                                             <action selector="shareMeme:" destination="BYZ-38-t0r" id="8OC-9D-q8Y"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Save" id="dWl-Ws-lqT">
+                                        <connections>
+                                            <action selector="save:" destination="BYZ-38-t0r" id="Ono-Yc-ya8"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -83,8 +89,7 @@
                                         <exclude reference="wTi-b1-Goh"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="101" width="360" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="wTi-b1-Goh"/>
                                     </mask>
@@ -135,20 +140,20 @@
                                 <exclude reference="RMb-7I-Ebp"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="CbP-OU-vk5"/>
+                                <exclude reference="Zle-IP-3b6"/>
+                                <exclude reference="vVf-OT-MU8"/>
                                 <exclude reference="dYI-P6-20B"/>
                                 <exclude reference="wOp-Vf-7PM"/>
                                 <exclude reference="y9e-6x-7Th"/>
-                                <exclude reference="4Wh-Th-VQX"/>
-                                <exclude reference="iUb-6I-JCk"/>
                                 <exclude reference="BEJ-32-7zE"/>
                                 <exclude reference="OFs-pC-lNH"/>
                                 <exclude reference="InH-pJ-jsJ"/>
                                 <exclude reference="Ssi-hC-gSh"/>
                                 <exclude reference="igc-e1-egD"/>
                                 <exclude reference="wwm-YG-w5h"/>
-                                <exclude reference="CbP-OU-vk5"/>
-                                <exclude reference="Zle-IP-3b6"/>
-                                <exclude reference="vVf-OT-MU8"/>
+                                <exclude reference="4Wh-Th-VQX"/>
+                                <exclude reference="iUb-6I-JCk"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -159,20 +164,20 @@
                                 <include reference="RMb-7I-Ebp"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="CbP-OU-vk5"/>
+                                <include reference="Zle-IP-3b6"/>
+                                <include reference="vVf-OT-MU8"/>
                                 <include reference="dYI-P6-20B"/>
                                 <include reference="wOp-Vf-7PM"/>
                                 <include reference="y9e-6x-7Th"/>
-                                <include reference="4Wh-Th-VQX"/>
-                                <include reference="iUb-6I-JCk"/>
                                 <include reference="BEJ-32-7zE"/>
                                 <include reference="OFs-pC-lNH"/>
                                 <include reference="InH-pJ-jsJ"/>
                                 <include reference="Ssi-hC-gSh"/>
                                 <include reference="igc-e1-egD"/>
                                 <include reference="wwm-YG-w5h"/>
-                                <include reference="CbP-OU-vk5"/>
-                                <include reference="Zle-IP-3b6"/>
-                                <include reference="vVf-OT-MU8"/>
+                                <include reference="4Wh-Th-VQX"/>
+                                <include reference="iUb-6I-JCk"/>
                             </mask>
                         </variation>
                     </view>

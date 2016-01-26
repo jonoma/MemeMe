@@ -11,7 +11,7 @@ import UIKit
 struct Meme {
     var memeTopText: String
     var memeBottomText: String
-    var memeOriginalImage: UIImage
+    var memeOriginalImage: UIImage?
     var memeImage: UIImage
 }
 
@@ -64,12 +64,14 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return true;
     }
     
-    func save() -> Meme{
+    func save() {
+        //Create the meme
+        let meme = Meme(memeTopText: topText.text!, memeBottomText: bottomText.text!, memeOriginalImage: imageDisplay.image, memeImage: memeImage())
         
-        let memedImage = memeImage()
-        let meme = Meme(memeTopText: topText.text!, memeBottomText: bottomText.text!, memeOriginalImage: imageDisplay.image!, memeImage: memedImage)
-        
-        return meme
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func memeImage() -> UIImage {
@@ -87,7 +89,21 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        let userInfo: [NSObject : AnyObject] = notification.userInfo!
+        
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+        
+        if keyboardSize.height == offset.height {
+            if self.view.frame.origin.y == 0 {
+                UIView.animateWithDuration(0.1, animations: { () -> Void in self.view.frame.origin.y -= keyboardSize.height
+                } )
+            } else {
+                UIView.animateWithDuration(0.1, animations: { () -> Void in self.view.frame.origin.y += keyboardSize.height - offset.height
+                })
+            }
+        }
+        //view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -146,6 +162,10 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
         let activityViewController = UIActivityViewController(activityItems: memeObjects, applicationActivities: nil)
         self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        save()
     }
 }
 
