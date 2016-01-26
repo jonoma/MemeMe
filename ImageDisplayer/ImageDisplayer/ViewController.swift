@@ -24,6 +24,10 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
     
+    var topString: String?
+    var bottomString: String?
+    var image: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.grayColor()
@@ -43,6 +47,18 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         bottomText.defaultTextAttributes = memeTextAttributes
         topText.textAlignment = .Center
         bottomText.textAlignment = .Center
+        
+        if self.topString != nil {
+            topText.text = topString
+        }
+        
+        if self.bottomString != nil {
+            bottomText.text = bottomString
+        }
+        
+        if self.image != nil {
+            imageDisplay.image = image
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -72,6 +88,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+        print(appDelegate.memes.count)
     }
     
     func memeImage() -> UIImage {
