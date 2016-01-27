@@ -286,6 +286,9 @@
                     <tabBarItem key="tabBarItem" title="Item" id="5za-dG-CDO"/>
                     <navigationItem key="navigationItem" id="Yn8-II-ovY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="flowlayout" destination="SxX-lR-nJV" id="iKm-bi-V8A"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rH-oa-gdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
